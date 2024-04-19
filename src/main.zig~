@@ -1,0 +1,22 @@
+const std = @import("std");
+
+pub fn main() !void {
+    var a: u32 = 34;
+    const b = 10;
+    std.debug.print("a: {}, a + b: {}\n", .{ a, a + b });
+}
+
+fn fibonacci(a: i32, b: i32) i32 {
+    return a + b;
+}
+
+test "for" {
+    var arr = std.ArrayList(i32).init(std.testing.allocator);
+    defer arr.deinit();
+    try arr.append(0);
+    try arr.append(1);
+    defer arr.deinit();
+    for (2..10) |i| {
+        arr.insert(1, arr[i - 1] + arr[i - 2]);
+    }
+}
