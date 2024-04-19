@@ -2,7 +2,7 @@ const debug = @import("std").debug;
 
 pub fn Matrix(comptime t: type, rows: u8, columns: u8) type {
     return struct {
-        table: [columns][rows]t,
+        table: [rows][columns]t,
 
         const Self = @This();
         pub fn print(self: *Self) void {
